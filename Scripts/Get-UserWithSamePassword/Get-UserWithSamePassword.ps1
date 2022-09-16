@@ -2,10 +2,12 @@ function Get-UserWithSamePassword
 {
     param(
         [Parameter(Mandatory)]
-        [string]$PasswordUserName,
+        [string]
+        $PasswordUserName,
 
         [Parameter()]
-        [string]$ComputerName = (Get-ADDomainController)
+        [string]
+        $ComputerName = (Get-ADDomainController)
     )
 
     if (-not (Get-Module -ListAvailable -Name DSInternals))
@@ -45,5 +47,3 @@ function Get-UserWithSamePassword
     }
 
 }
-
-Get-UserWithSamePassword -PasswordUserName PasswordUser1 
