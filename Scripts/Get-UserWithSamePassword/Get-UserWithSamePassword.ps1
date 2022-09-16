@@ -10,12 +10,6 @@ function Get-UserWithSamePassword
         $ComputerName = (Get-ADDomainController)
     )
 
-    if (-not (Get-Module -ListAvailable -Name DSInternals))
-    {
-        Write-Error "The module 'DSInternals' does not exist on the server. Exiting..."
-        return
-    }
-
     try
     {
         $user = Get-ADUser -Identity $PasswordUserName
